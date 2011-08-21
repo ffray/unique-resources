@@ -1,24 +1,50 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>biz.itcf</groupId>
   <artifactId>unique-resources</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Unique Resources Project</name>
-  <description>Unique Resources helps to maintain content by generating Unique Resource Identifiers.
-</description>
+  <description>
+    Unique Resources helps to maintain content by generating Unique Resource Identifiers.
+  </description>
   <url>http://www.itcf.biz/projects/unique-resources</url>
   <issueManagement>
-  	<system>jira</system>
-  	<url>http://issues.itcf.biz/browse/URES</url>
+    <system>jira</system>
+    <url>http://issues.itcf.biz/browse/URES</url>
   </issueManagement>
   <ciManagement>
-  	<system>jenkins</system>
-  	<url>http://jenkins.itcf.biz</url>
+    <system>jenkins</system>
+    <url>http://jenkins.itcf.biz/job/Unique%20Resources/</url>
   </ciManagement>
   <inceptionYear>2011</inceptionYear>
   <organization>
-  	<name>IT Consulting Florian Fray</name>
-  	<url>http://www.itcf.biz</url>
+    <name>IT Consulting Florian Fray</name>
+    <url>http://www.itcf.biz</url>
   </organization>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <modules>
+    <module>unique-resources-plugin</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.6</source>
+            <target>1.6</target>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
 </project>
