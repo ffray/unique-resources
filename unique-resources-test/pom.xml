@@ -12,6 +12,17 @@
   <name>Unique Resources - Test Harness</name>
 
   <build>
+    <filters>
+      <filter>${project.build.directory}/generated-resources/tagged-index.properties</filter>
+    </filters>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>biz.itcf</groupId>
@@ -39,7 +50,7 @@
       </plugin>
     </plugins>
   </build>
-  
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

@@ -1,8 +1,13 @@
 package biz.itcf.urestest;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Properties;
 
 import junit.framework.Assert;
@@ -47,7 +52,32 @@ public class ResourceTest {
         Assert.assertEquals("No. of files in generated-resources", 5, generatedResourcesDir.list().length);
     }
 
+    @Test
+    public void testFiltering() throws IOException {
+        assertResourceExists("/some.css");
+        BufferedReader br = new BufferedReader(new InputStreamReader(getResourceAsStream("/some.css"), "UTF-8"));
+        try {
+            Assert.assertEquals("span {", br.readLine());
+            Assert.assertEquals("  background-image: url(\"test_0.png\");", br.readLine());
+            Assert.assertEquals("}", br.readLine());
+            Assert.assertNull(br.readLine());
+        } finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+            }
+        }
+    }
+
     public void assertResourceExists(String res) {
         Assert.assertNotNull("Resource: " + res, getClass().getResource(res));
+    }
+    
+    public URL getResource(String res) {
+        return getClass().getResource(res);
+    }
+    
+    public InputStream getResourceAsStream(String res) {
+        return getClass().getResourceAsStream(res);
     }
 }
