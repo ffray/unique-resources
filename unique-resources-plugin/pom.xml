@@ -9,6 +9,7 @@
   <artifactId>unique-resources-plugin</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
+  <name>Unique Resources - Maven Plugin</name>
   
   <prerequisites>
     <maven>3.0.2</maven>
@@ -28,6 +29,16 @@
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-model</artifactId>
+      <version>3.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-artifact</artifactId>
+      <version>3.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-core</artifactId>
       <version>3.0.2</version>
     </dependency>
     
