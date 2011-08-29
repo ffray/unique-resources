@@ -30,7 +30,6 @@
 
   <modules>
     <module>unique-resources-plugin</module>
-    <module>unique-resources-test</module>
   </modules>
 
   <build>

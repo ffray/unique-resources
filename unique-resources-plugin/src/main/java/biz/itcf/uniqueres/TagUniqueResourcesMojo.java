@@ -60,7 +60,7 @@ public class TagUniqueResourcesMojo extends AbstractMojo {
      * 
      * These groups can be referenced by the {@link #taggedReplacementPattern}.
      * 
-     * @parameter default-value="^(.*?)(\\.[^./]+)?$"
+     * @parameter default-value="(.*?)(\\.[^.]*)"
      */
     private String untaggedSearchPattern;
 
@@ -126,10 +126,6 @@ public class TagUniqueResourcesMojo extends AbstractMojo {
 
                 for (String resourceName : scanner.getIncludedFiles()) {
                     File resource = new File(baseDir, resourceName);
-
-                    if (isHidden(baseDir, resource)) {
-                        continue;
-                    }
 
                     String taggedResourceName = helper.makeTaggedFilename(baseDir, resourceName);
 
@@ -241,16 +237,5 @@ public class TagUniqueResourcesMojo extends AbstractMojo {
             indexOut.close();
         }
 
-    }
-
-    public static boolean isHidden(File base, File f) {
-        if (f == null || base.equals(f)) {
-            return false;
-        }
-        if (f.isHidden()) {
-            return true;
-        } else {
-            return isHidden(base, f.getParentFile());
-        }
     }
 }
